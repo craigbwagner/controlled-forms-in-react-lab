@@ -24,7 +24,10 @@ function Bookshelf() {
 		<div className='bookshelfDiv'>
 			<div className='formDiv'>
 				<h3>Add a Book</h3>
-				<form onSubmit={handleSubmit}>
+				<form
+					onSubmit={handleSubmit}
+					className='formDiv'
+				>
 					<label htmlFor='title'>Title: </label>
 					<input
 						type='text'
@@ -44,7 +47,17 @@ function Bookshelf() {
 					<button type='submit'>Add Book</button>
 				</form>
 			</div>
-			<div className='bookCardsDiv'>{/* Book cards will display here */}</div>
+			<div className='bookCardsDiv'>
+				{books.map((book, idx) => (
+					<div
+						key={idx}
+						className='bookCard'
+					>
+						<p>{book.title}</p>
+						<p>{book.author}</p>
+					</div>
+				))}
+			</div>
 		</div>
   );
 }
