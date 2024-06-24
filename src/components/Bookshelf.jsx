@@ -14,7 +14,11 @@ function Bookshelf() {
 		setNewBook({ ...newBook, [e.target.name]: e.target.value });
   }
 
-  function handleSubmit(e) {}
+  function handleSubmit(e) {
+		e.preventDefault();
+		setBooks([...books, { title: newBook.title, author: newBook.author }]);
+		setNewBook({ title: '', author: '' });
+  }
 
   return (
 		<div className='bookshelfDiv'>
